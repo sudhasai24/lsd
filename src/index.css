@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    @apply bg-space-900 text-white;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .cosmic-card {
+    @apply backdrop-blur-md bg-space-800/60 border border-space-600/30 rounded-xl;
+  }
+  
+  .cosmic-input {
+    @apply bg-space-800/60 border border-space-600/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-nebula-400/50 text-white placeholder:text-space-400 w-full transition-all duration-200;
+  }
+  
+  .cosmic-button {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .cosmic-button-primary {
+    @apply cosmic-button bg-gradient-to-r from-nebula-500 to-nebula-600 hover:from-nebula-600 hover:to-nebula-700 text-white shadow-lg shadow-nebula-500/20 hover:shadow-nebula-500/30;
+  }
+  
+  .cosmic-button-secondary {
+    @apply cosmic-button bg-space-700/60 hover:bg-space-600/60 border border-space-600/50 text-white;
+  }
+  
+  .star {
+    @apply fixed bg-white rounded-full pointer-events-none animate-twinkle;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  
+  .cosmic-gradient {
+    @apply bg-gradient-to-br from-space-900 via-space-800 to-nebula-900;
+  }
+}
